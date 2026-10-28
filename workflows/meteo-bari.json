@@ -1,0 +1,100 @@
+{
+  "name": "Meteo Bari → Telegram",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4999e07d-1e57-460c-a4f0-47c30b3265e0",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "url": "https://api.open-meteo.com/v1/forecast?latitude=41.12&longitude=16.87&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Europe/Rome&forecast_days=1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "992d5f61-50bf-474e-9b26-7f6471b36eec",
+      "name": "HTTP Request"
+    },
+    {
+      "parameters": {
+        "chatId": "=INSERISCI_IL_TUO_CHAT_ID",
+        "text": "=Meteo Bari - {{ $json.daily.time[0] }}\nMinima {{ $json.daily.temperature_2m_min[0] }} °C - Massima {{ $json.daily.temperature_2m_max[0] }} °C\nPioggia: {{ $json.daily.precipitation_probability_max[0] }}%\n",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        448,
+        0
+      ],
+      "id": "516dcf1f-bf07-478d-8a83-02116b8c00fe",
+      "name": "Send a text message",
+      "webhookId": "1172af25-2d93-4544-8b94-cb261df22135",
+      "credentials": {
+        "telegramApi": {
+          "id": "g67kAFXd8BAbavnj",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "46e259cc-b26e-4a2d-a1b1-988c86791c1d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "aaebf62c6332225aa7ccbc6d8108069d86d0cfd6aef0e3d1683ac981a794b5c8"
+  },
+  "nodeGroups": [],
+  "id": "jf9CEbQBw1AVMNIV",
+  "tags": []
+}
