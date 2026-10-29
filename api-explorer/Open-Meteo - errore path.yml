@@ -33,4 +33,7 @@ settings:
   maxRedirects: 5
   forwardAuthorizationHeader: false
 
-docs: "Ho modificato il path da `forecast` a `previsioni` e mi ha dato l'errore. Questo perché non ha trovato una corrispondenza. "
+docs: |-
+  Chiede a Open-Meteo la temperatura massima di Lecce di 3 giorni, fuso orario europe:rome\
+  error 404 not found\
+  errore client, modificare path correttamente

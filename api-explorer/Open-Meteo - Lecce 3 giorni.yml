@@ -31,4 +31,6 @@ settings:
   maxRedirects: 5
   forwardAuthorizationHeader: false
 
-docs: "Ho ottenuto tre previsioni della temperatura massima di tre giorni differenti in un unico messaggio. Tutto questo inserendo l'URL completo fornitomi "
+docs: |-
+  Chiede a Open-Meteo la temperatura massima di Lecce di 3 giorni, fuso orario europe:rome\
+  status 200 ok; tempo 215ms
