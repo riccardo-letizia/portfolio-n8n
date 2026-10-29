@@ -1,0 +1,34 @@
+info:
+  name: Open-Meteo - Lecce 3 giorni
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: https://api.open-meteo.com/v1/forecast?latitude=40.35&longitude=18.17&daily=temperature_2m_max&timezone=Europe/Rome&forecast_days=3
+  params:
+    - name: latitude
+      value: "40.35"
+      type: query
+    - name: longitude
+      value: "18.17"
+      type: query
+    - name: daily
+      value: temperature_2m_max
+      type: query
+    - name: timezone
+      value: Europe/Rome
+      type: query
+    - name: forecast_days
+      value: "3"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "Ho ottenuto tre previsioni della temperatura massima di tre giorni differenti in un unico messaggio. Tutto questo inserendo l'URL completo fornitomi "

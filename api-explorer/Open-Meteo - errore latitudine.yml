@@ -1,0 +1,34 @@
+info:
+  name: Open-Meteo - errore latitudine
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: https://api.open-meteo.com/v1/forecast?latitude=999&longitude=18.17&daily=temperature_2m_max&timezone=Europe/Rome&forecast_days=3
+  params:
+    - name: latitude
+      value: "999"
+      type: query
+    - name: longitude
+      value: "18.17"
+      type: query
+    - name: daily
+      value: temperature_2m_max
+      type: query
+    - name: timezone
+      value: Europe/Rome
+      type: query
+    - name: forecast_days
+      value: "3"
+      type: query
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
+
+docs: "Ho eseguito gli stessi passaggi del primo, ma ho modificato la latitudine a 999. Mi dà l'errore: questo perché la latitudine va da -90 a 90°. Con error: true "
