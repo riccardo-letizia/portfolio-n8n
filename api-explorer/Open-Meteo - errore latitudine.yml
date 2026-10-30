@@ -32,6 +32,6 @@ settings:
   forwardAuthorizationHeader: false
 
 docs: |-
-  Chiede a Open-Meteo la temperatura massima di Lecce di 3 giorni, fuso orario europe:rome\
+  L'obiettivo è quello di dimostrare che l'inserimento di un parametro sbagliato causa un errore che viene rilevato con la sua eventuale correzione.\
   status 400 bad request; tempo 191ms\
   colpa client, correggere latitudine: deve essere compresa tra -90° e 90°.

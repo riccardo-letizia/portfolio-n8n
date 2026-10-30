@@ -32,5 +32,5 @@ settings:
   forwardAuthorizationHeader: false
 
 docs: |-
-  Chiede a Open-Meteo la temperatura massima di Lecce di 3 giorni, fuso orario europe:rome\
+  Chiede a Open-Meteo la temperatura massima di Lecce di 3 giorni, fuso orario Europe/Rome\
   status 200 ok; tempo 215ms
